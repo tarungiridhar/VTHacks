@@ -7,5 +7,3 @@ function store() {
         console.log("Value currently is " + result.key);
       });
 }
-
-console.log("This is a popup!")
