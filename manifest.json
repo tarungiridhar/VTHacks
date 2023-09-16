@@ -3,6 +3,9 @@
     "name": "Voice Your Vote!",
     "description": "Contact your representatives hassle free!",
     "version": "1.0",
+    "permissions": [
+        "storage"
+      ],
     "action": {
       "default_popup": "startpage.html",
       "default_icon": "voiceyourvote.png"
