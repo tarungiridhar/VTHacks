@@ -7,3 +7,5 @@ function store() {
         console.log("Value currently is " + result.key);
       });
 }
+
+document.getElementById("saveButt").addEventListener("click",store());
