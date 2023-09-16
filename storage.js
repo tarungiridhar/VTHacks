@@ -1,5 +1,5 @@
 function store() {
-    chrome.storage.local.set({ "firstName": document.getElementById("FirstName") }).then(() => {
+    chrome.storage.local.set({ "firstName": document.getElementById("FirstName").value }).then(() => {
         console.log("First Name is set");
       });
 
