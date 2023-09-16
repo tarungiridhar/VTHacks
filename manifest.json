@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "Voice Your Vote!",
-    "description": "Base Level Extension",
+    "description": "Contact your representatives hassle free!",
     "version": "1.0",
     "action": {
       "default_popup": "startpage.html",
