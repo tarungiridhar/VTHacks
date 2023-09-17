@@ -1,6 +1,6 @@
 function test() {
     try {
-        console.log(process.env.CIVIC_API_KEY);
+        console.log(getAuth("civic"));
     }
     catch {
         console.log("fail");
