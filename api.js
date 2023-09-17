@@ -9,7 +9,7 @@ if (document.title == "api") {
 }
 
 if (document.title == "repOutput") {
-    setRepOutput()
+    getAuth()
 }
 
 
@@ -23,38 +23,57 @@ function saveAuth() {
     });
 }
 
-function getAuth(x){
-    y = "";
-    if (x=="civic") {
-        chrome.storage.local.get(["civic"], function(items){
-            y = items.civic;
-        });
-        setTimeout(function(){
-            console.log("get after " + y);
+function getAuth(){
+        civicKey = "";
+        x = "";
+        chrome.storage.local.get(["firstName", "lastName", "address", "city", "zip", "stateNames"], function(items){
             
-        }, 500)
+            x += items.address;
+            x = x.replaceAll(" ","%20")
+            console.log(items.firstName)
+            console.log(items.lastName)
+            console.log(items.address)
+            console.log(items.city)
+            x = x + "%20" + items.city;
+            console.log(items.stateNames)
+            
+            x = x + "%20" + items.stateNames;
+            console.log(items.zip)
+            
+                x = x + "%20" + items.zip;
+        });
+    
+        chrome.storage.local.get(["civic"], function(items){
+            civicKey = items.civic;
+        });
+
         setTimeout(function(){
-            return y;
+            address = x;
         }, 1000)
         
-    }
-    else {
-        chrome.storage.local.get(["gpt"], function(items){
-            y = items.gpt;
-        });
+        
+        
         setTimeout(function(){
-            console.log("get after " + y);
-            return y;
+            console.log("get after " + civicKey);
+            setRepOutput();
         }, 1000)
-    }
+
+        
+
+        async function setRepOutput() {
+            console.log(address + " PLEASE");
+            console.log(civicKey + " PLEASE");
+            
+            const response = await fetch("https://www.googleapis.com/civicinfo/v2/representatives?key="+civicKey+"&address=" + address + "&roles=legislatorLowerBody")
+            const output = await response.json();
+            console.log(output.officials[0].urls[0]);
+            document.getElementById("repWebsite").href = output.officials[0].urls[0];
+            document.getElementById("repPic").src = output.officials[0].photoUrl;
+        }
+    
 }
 
-async function setRepOutput() {
-    const response = await fetch("https://www.googleapis.com/civicinfo/v2/representatives?key="+civicKey+"&address=" + retrieve() + "&roles=legislatorLowerBody")
-    const output = await response.json();
-    document.getElementById("repWebsite").href = output.officials[0].urls[0];
-    document.getElementById("repPic").src = output.officials[0].photoUrl;
-}
+
 
 async function testFetch() {
     
