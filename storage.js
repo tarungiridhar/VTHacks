@@ -1,7 +1,7 @@
 document.getElementById("saveButt").addEventListener("click",store);
 document.getElementById("nextButt").addEventListener("click",store);
 document.getElementById("retrieveButt").addEventListener("click",retrieve);
-document.getElementById("saveAPI").addEventListener("click",saveAuth);
+document.getElementById("homeButt").addEventListener("click",saveAuth);
 function store() {
     chrome.storage.local.set({ "firstName": document.getElementById("FirstName").value, 
     "lastName": document.getElementById("LastName").value, "address": document.getElementById("Address").value,
