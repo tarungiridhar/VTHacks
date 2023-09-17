@@ -1,3 +1,17 @@
+header {
+    background-color: #333; /* Background color of the header */
+    padding: 20px; /* Padding around the header content */
+    text-align: center; /* Center align header content */
+  }
+  
+  /* CSS styles for the header image */
+  header img {
+    max-width: 100%; /* Make sure the image scales proportionally within the header */
+    height: auto; /* Maintain image aspect ratio */
+    display: block; /* Remove any default inline styles that may affect spacing */
+    margin: 0 auto; /* Center the image horizontally */
+  }
+
 h1 {   
     text-align: center;
     }
@@ -6,8 +20,25 @@ html {
     height: 300px;
     width: 400px;      
     }
+
+body, h1, h2, h3, p {
+    margin: 0;
+    padding: 20;
+    font-family: Georgia, serif;
+    }
+label {
+    margin: 0;
+    font-family: Georgia, serif;
+    font-size: 14px;
+}
 textarea[type="thoughts"]::placeholder {
     text-align: center;
+}
+
+textarea[type="thoughts"] {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
 }
 
 button {
@@ -20,10 +51,20 @@ button {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-left: 5px;
+    margin-right: 5px;
   }
 
 button:hover {
 background-color: #0056b3;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    margin: 0px;
 }
 
 input[type="text"] {
@@ -32,12 +73,13 @@ padding: 10px;
 margin-bottom: 10px;
 border: 1px solid #ccc;
 border-radius: 5px;
-font-size: 16px;
+font-size: 14px;
 }
 
 a {
     color: #007bff;
     text-decoration: none;
+    font-size: 14px;
   }
 
 a:hover {
@@ -76,9 +118,11 @@ select {
     padding: 10px;
   }
   
-  /* Style the dropdown when an option is hovered */
-  select option:hover {
-    background-color: #007bff;
-    color: #fff;
-  }
+/* Style the dropdown when an option is hovered */
+select option:hover {
+background-color: #007bff;
+color: #fff;
+}
+
+
   
