@@ -1,18 +1,7 @@
-/* header {
-    background-color: #333; 
-    padding: 20px; 
-    text-align: center; 
-  }
-  header img {
-    max-width: 100%; 
-    height: auto; 
-    display: block; 
-    margin: 0 auto;  
-  } 
-  */
 .header {
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 .circle-button {
     width: 50px; /* Set the width and height to create a circle */
@@ -61,7 +50,7 @@ textarea::placeholder {
     display: flex;
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
-    height: 100vh; /* 100% of viewport height */
+    height: 70vh; /* 100% of viewport height */
   }
   
   /* CSS styles for the textarea */
