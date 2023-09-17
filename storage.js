@@ -48,28 +48,39 @@ function store() {
 }
 
 function retrieve() {
-    chrome.storage.local.get(["firstName"], x = function(items){
+    x = "";
+    chrome.storage.local.get(["firstName"], function(items){
         console.log("Value currently is " + items.firstName);
         document.getElementById("FirstName").value = items.firstName;
     });
-    chrome.storage.local.get(["lastName"], x = function(items){
+    chrome.storage.local.get(["lastName"], function(items){
         console.log("Value currently is " + items.lastName);
         document.getElementById("LastName").value = items.lastName;
     });
-    chrome.storage.local.get(["address"], x = function(items){
+    chrome.storage.local.get(["address"], function(items){
         console.log("Value currently is " + items.address);
         document.getElementById("Address").value = items.address;
+        x += items.address;
     });
-    chrome.storage.local.get(["city"], x = function(items){
+    chrome.storage.local.get(["city"], function(items){
         console.log("Value currently is " + items.city);
         document.getElementById("City").value = items.city;
+        x = x + " " + items.city;
     });
-    chrome.storage.local.get(["zip"], x = function(items){
-        console.log("Value currently is " + items.zip);
-        document.getElementById("Zip").value = items.zip;
-    });
-    chrome.storage.local.get(["stateNames"], x = function(items){
+    chrome.storage.local.get(["stateNames"], function(items){
         console.log("Value currently is " + items.stateNames);
         document.getElementById("StateNames").value = items.stateNames;
+        x = x + ", " + items.stateNames;
     });
+    chrome.storage.local.get(["zip"], function(items){
+        console.log("Value currently is " + items.zip);
+        document.getElementById("Zip").value = items.zip;
+        x = x + " " + items.zip;
+    });
+    x = chrome.storage.local.get(["zip"]).then((result) => {
+        console.log("Value currently is " + result.zip);
+        return result.zip
+    });
+
+    console.log("x value is currently " + x);
 }
