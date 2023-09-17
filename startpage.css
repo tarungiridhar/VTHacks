@@ -23,7 +23,17 @@
     display: block; /* Remove any default inline styles that may affect spacing */
 }
 
-h1 {   
+.repPicClass {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+}
+
+.repWebClass {
+    text-align: center;
+}
+
+h1, h2 {   
     text-align: center;
     }
     
