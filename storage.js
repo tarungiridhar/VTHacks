@@ -1,4 +1,5 @@
 document.getElementById("saveButt").addEventListener("click",store);
+document.getElementById("retrieveButt").addEventListener("click",retrieve);
 
 function store() {
     chrome.storage.local.set({ "firstName": document.getElementById("FirstName").value }).then(() => {
@@ -15,3 +16,10 @@ function store() {
     });
 }
 
+function retrieve() {
+   
+      chrome.storage.local.get(/* String or Array */["firstName"], function(items){
+        //  items = [ { "phasersTo": "awesome" } ]
+        console.log(items)
+    });
+}
