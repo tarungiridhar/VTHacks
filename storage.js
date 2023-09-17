@@ -1,6 +1,8 @@
-document.getElementById("saveButt").addEventListener("click",store);
-document.getElementById("nextButt").addEventListener("click",store);
-document.getElementById("retrieveButt").addEventListener("click",retrieve);
+if (document.title == "startpage.html") {
+    document.getElementById("saveButt").addEventListener("click",store);
+    document.getElementById("nextButt").addEventListener("click",store);
+    document.getElementById("retrieveButt").addEventListener("click",retrieve);
+}
 
 function store() {
     chrome.storage.local.set({ "firstName": document.getElementById("FirstName").value, 

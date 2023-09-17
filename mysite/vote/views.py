@@ -9,17 +9,16 @@ from django.http import JsonResponse , HttpResponse ####
 
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the wiki index.")
+    return HttpResponse("Hello, world. You're at the voice your vote index.")
 
 
-# https://pypi.org/project/wikipedia/#description
-def get_wiki_summary(request):
+def get_gpt_response(request):
     topic = request.GET.get('topic', None)
 
     print('topic:', topic)
 
     data = {
-        'summary': wikipedia.summary(topic, sentences=1),
+        'response': "",
         'raw': 'Successful',
     }
 
