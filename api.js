@@ -1,8 +1,15 @@
 var civicKey = ""
 var gptKey = ""
+var repName = ""
+var repImage = ""
+var repURL = ""
 
 if (document.title == "api") {
     document.getElementById("apiSaveButt").addEventListener("click",saveAuth);
+}
+
+if (document.title == "repOutput") {
+    setRepOutput()
 }
 
 
@@ -13,7 +20,6 @@ function saveAuth() {
         civicKey = document.getElementById("civicKey").value;
         console.log("GPT Key is set " + document.getElementById("gptKey").value);
         gptKey = document.getElementById("gptKey").value;
-        testFetch();
     });
 }
 
@@ -43,6 +49,13 @@ function getAuth(x){
     }
 }
 
+async function setRepOutput() {
+    const response = await fetch("https://www.googleapis.com/civicinfo/v2/representatives?key="+civicKey+"&address=" + retrieve() + "&roles=legislatorLowerBody")
+    const output = await response.json();
+    document.getElementById("repWebsite").href = output.officials[0].urls[0];
+    document.getElementById("repPic").src = output.officials[0].photoUrl;
+}
+
 async function testFetch() {
     
     setTimeout(function(){
@@ -57,14 +70,14 @@ async function testFetch() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + "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"
+          'Authorization': 'Bearer ' + gptKey
         },
         body: JSON.stringify({
           'model': 'gpt-3.5-turbo',
           'messages': [
             {
               'role': 'user',
-              'content': ''
+              'content': 'Write the body of a message to my local representative David Trone that talks about why abortion should be legalized. My name is Tarun Giridhar'
             }
           ],
           'temperature': 0.7
