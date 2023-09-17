@@ -54,7 +54,7 @@ function newTab() {
     text.select();
     document.execCommand("copy");
     chrome.storage.local.get(["repWebsite"], function(items){
-        repsite = items.repWebsite;
+        repSite = items.repWebsite;
     });
     
     setTimeout(function(){
