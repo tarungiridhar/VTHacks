@@ -1,8 +1,11 @@
 document.getElementById("genButt").addEventListener("click",generate);
 document.getElementById("repButt").addEventListener("click",newTab);
+document.getElementById("load").style.display="none";
 
 function generate() {
     userIn = document.getElementById("inputWords").value;
+    document.getElementById("inputWords").style.display="none";
+    document.getElementById("load").style.display="inline-flex";
     console.log(userIn);
     auth = "";
     userName = "";
@@ -44,6 +47,8 @@ function generate() {
           });
         const gptOut =  await gpt.json();
         console.log(gptOut);
+        document.getElementById("load").style.display="none";
+        document.getElementById("inputWords").style.display="initial";
         document.getElementById("inputWords").value = gptOut.choices[0].message.content;
     }
 }
