@@ -12,6 +12,8 @@ function generate() {
         console.log("just got " + auth);
     }, 1000)
 
+    testFetch()
+
     async function testFetch() {
     
         const gpt = await fetch('https://api.openai.com/v1/chat/completions', {
@@ -32,7 +34,7 @@ function generate() {
             })
           });
         const gptOut =  await gpt.json();
-        console.log(gptOut);   
-        console.log(output.officials[0].urls[0]);
+        document.getElementById("message").value = gptOut;
+        console.log(gptOut);
     }
 }
