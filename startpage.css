@@ -1,16 +1,37 @@
-header {
-    background-color: #333; /* Background color of the header */
-    padding: 20px; /* Padding around the header content */
-    text-align: center; /* Center align header content */
+/* header {
+    background-color: #333; 
+    padding: 20px; 
+    text-align: center; 
   }
-  
-  /* CSS styles for the header image */
   header img {
-    max-width: 100%; /* Make sure the image scales proportionally within the header */
+    max-width: 100%; 
+    height: auto; 
+    display: block; 
+    margin: 0 auto;  
+  } 
+  */
+.header {
+    display: flex;
+    align-items: center;
+}
+.circle-button {
+    width: 50px; /* Set the width and height to create a circle */
+    height: 50px;
+    border-radius: 50%; /* Make it a circle by setting border-radius to 50% */
+    background-color: #007bff; /* Background color of the button */
+    border: none; /* Remove the border */
+    cursor: pointer; /* Change cursor to a pointer on hover */
+    transition: background-color 0.3s ease; /* Add a smooth transition for background color changes */
+    padding: 0; /* Remove default padding to ensure the image fits perfectly */
+    overflow: hidden; /* Hide any content that overflows the button */
+}
+  
+/* Style the image within the button */
+.circle-button img {
+    width: 100%; /* Ensure the image takes up the entire button */
     height: auto; /* Maintain image aspect ratio */
     display: block; /* Remove any default inline styles that may affect spacing */
-    margin: 0 auto; /* Center the image horizontally */
-  }
+}
 
 h1 {   
     text-align: center;
