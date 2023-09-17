@@ -24,6 +24,7 @@
     transition: background-color 0.3s ease; /* Add a smooth transition for background color changes */
     padding: 0; /* Remove default padding to ensure the image fits perfectly */
     overflow: hidden; /* Hide any content that overflows the button */
+    
 }
   
 /* Style the image within the button */
@@ -39,7 +40,7 @@ h1 {
     
 html {
     height: 300px;
-    width: 400px;      
+    width: 500px;      
     }
 
 body, h1, h2, h3, p {
@@ -57,9 +58,13 @@ textarea[type="thoughts"]::placeholder {
 }
 
 textarea[type="thoughts"] {
-    margin-left: auto;
-    margin-right: auto;
+    /* margin-left: auto;
+    margin-right: auto; */
+    display: block;
+    width: 80%;
+    height: 50%;
     margin-bottom: 10px;
+    align-self: stretch;
 }
 
 button {
