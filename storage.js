@@ -10,16 +10,14 @@ function store() {
         console.log("Value currently is " + result);
       });*/
     
-      chrome.storage.local.get(/* String or Array */["firstName"], function(items){
-        //  items = [ { "phasersTo": "awesome" } ]
+    chrome.storage.local.get(["firstName"], function(items){
         console.log(items)
     });
 }
 
 function retrieve() {
-   
-      chrome.storage.local.get(/* String or Array */["firstName"], function(items){
-        //  items = [ { "phasersTo": "awesome" } ]
-        console.log(items)
+    chrome.storage.local.get(["firstName"], x = function(items){
+        console.log("Value currently is " + items.firstName);
+        document.getElementById("FirstName").value = items.firstName;
     });
 }
