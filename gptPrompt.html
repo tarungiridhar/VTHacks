@@ -10,11 +10,15 @@
               <img src="home-icon-vector.jpg" alt="Button Image">
             </button></a>
             <h1>What do you want to say?</h1>
-          </div>
-        <textarea type = "thoughts" name = "description" placeholder="What you want to say to your representative?"></textarea> 
+        </div>
+        <div class="centered-textarea">
+            <textarea rows="10" cols="50" id="inputWords" placeholder="What do you want to say to your representative?"></textarea>
+            <!-- <textarea type = "thoughts" name = "description" placeholder="What you want to say to your representative?"></textarea> -->
+        </div>
+         
         <br>
         <div class="button-container">
-        <button type="button">Generate Message</button>
-        <a href="gptOutput.html"><button id = "eshekaTest">for Esheka Test</button></a></div>
+        <a href="gptOutput.html"><button type="button" id="genButt">Generate Message</button>
+        <script src="gpt.js"></script>
     </body>
 </html>
