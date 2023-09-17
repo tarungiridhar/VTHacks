@@ -3,9 +3,14 @@ document.getElementById("saveButt").addEventListener("click",generate);
 function generate() {
     userIn = document.getElementById("inputWords").value;
     auth = "";
+
     chrome.storage.local.get(["gpt"], function(items){
         auth = items.gpt;
     });
+
+    setTimeout(function(){
+        console.log("just got " + auth);
+    }, 1000)
 
     async function testFetch() {
     
