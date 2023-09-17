@@ -1,9 +1,13 @@
 <html>
   <head>
-    <h1>Voice Your Vote</h1>
+    <title>startpage</title>
+    <!-- <img src="voice-your-vote-banner.jpg" alt="Website Header Image"> -->
     <link rel = "stylesheet" type = "text/css" href = "startpage.css">
   </head>
   <body>
+    <div class="header">
+      <h1>Voice Your Vote</h1>
+    </div>
     <label for="FirstName">First Name:</label>
     <input type="text" id="FirstName" name="FirstName" placeholder="Jane">
     <br>
@@ -84,8 +88,9 @@
       <!--<button type="button" id = "nextButt">Next</button>-->
       <button type="button" id="retrieveButt">Retrieve</button>
       <a href="repOutput.html"><button id = "nextButt">Next</button></a>
-      <a href="api.html"><button id = "apiButt">Authenticate API</button></a>
-    </div>
+    </div> <br>
+    <div class="button-container"><a href="api.html"><button id = "apiButt">Authorize</button></a></div> <br>
+    
     <script src="storage.js"></script>
     <script src="civic.js"></script>
   </body>
