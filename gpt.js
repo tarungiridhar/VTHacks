@@ -2,6 +2,10 @@ document.getElementById("saveButt").addEventListener("click",generate);
 
 function generate() {
     userIn = document.getElementById("inputWords").value;
+    auth = "";
+    chrome.storage.local.get(["gpt"], function(items){
+        auth = items.gpt;
+    });
 
     async function testFetch() {
     
@@ -9,7 +13,7 @@ function generate() {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
-              'Authorization': 'Bearer ' + "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"
+              'Authorization': 'Bearer ' + auth
             },
             body: JSON.stringify({
               'model': 'gpt-3.5-turbo',
