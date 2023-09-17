@@ -1,4 +1,5 @@
 document.getElementById("genButt").addEventListener("click",generate);
+document.getElementById("repButt").addEventListener("click",generate);
 
 function generate() {
     userIn = document.getElementById("inputWords").value;
@@ -45,4 +46,17 @@ function generate() {
         console.log(gptOut);
         document.getElementById("inputWords").value = gptOut.choices[0].message.content;
     }
+}
+
+function NewTab() {
+    repSite = "";
+    chrome.storage.local.get(["repWebsite"], function(items){
+        repsite = items.repWebsite;
+    });
+    
+    setTimeout(function(){
+        console.log("just got " + repSite);
+    }, 500)
+
+    window.open(repSite, "_blank");
 }
