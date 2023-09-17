@@ -1,3 +1,7 @@
+# Web Store Link
+https://chrome.google.com/webstore/detail/voice-your-vote/bfdkddkbdbfablicjpaonhghkfkeeoib
+
+
 # Description
 In the status quo, representatives hide behind the veil of internet obscurity and the naivety of Generation Z. Voice Your Vote empowers every young person to be socially active by leveraging the power of generative text AI to give each user direct access to their representative. No longer will young peoples' social opinions be unheard, as Voice Your Vote allows anyone to take part in politics.
 
