@@ -5,7 +5,7 @@ document.getElementById("retrieveButt").addEventListener("click",retrieve);
 function store() {
     chrome.storage.local.set({ "firstName": document.getElementById("FirstName").value, 
     "lastName": document.getElementById("LastName").value, "address": document.getElementById("Address").value,
-    "city": document.getElementById("City").value, "zip": document.getElementById("Zip").value,"stateNames": document.getElementById("StateNames").value,
+    "city": document.getElementById("City").value, "zip": document.getElementById("Zip").value,"stateNames": document.getElementById("StateNames").value
     }).then(() => {
         console.log("First Name is set");
         console.log("Last Name is set");
@@ -27,8 +27,6 @@ function store() {
 
 function retrieve() {
     x = "";
-    
-    //getter().then(console.log("get after " + x));
 
     chrome.storage.local.get(["firstName", "lastName", "address", "city", "zip", "stateNames"], function(items){
         console.log(items.firstName)
@@ -50,39 +48,38 @@ function retrieve() {
             x = x + "%20" + items.zip;
     });
 
-    /*function getter() { 
-        chrome.storage.local.get(["firstName"], function(items){
-            console.log("Value currently is " + items.firstName);
-            document.getElementById("FirstName").value = items.firstName;
-        });
-        chrome.storage.local.get(["lastName"], function(items){
-            console.log("Value currently is " + items.lastName);
-            document.getElementById("LastName").value = items.lastName;
-        });
-        chrome.storage.local.get(["address"], function(items){
-            console.log("Value currently is " + items.address);
-            document.getElementById("Address").value = items.address;
-            x += items.address;
-        });
-        chrome.storage.local.get(["city"], function(items){
-            console.log("Value currently is " + items.city);
-            document.getElementById("City").value = items.city;
-            x = x + " " + items.city;
-        });
-        chrome.storage.local.get(["stateNames"], function(items){
-            console.log("Value currently is " + items.stateNames);
-            document.getElementById("StateNames").value = items.stateNames;
-            x = x + ", " + items.stateNames;
-        });
-        chrome.storage.local.get(["zip"], function(items){
-            console.log("Value currently is " + items.zip);
-            document.getElementById("Zip").value = items.zip;
-            x = x + " " + items.zip;
-        
-        });
-    }*/
     setTimeout(function(){
         console.log("get after " + x);
         return x;
     }, 1000)
+}
+
+function saveAuth() {
+    chrome.storage.local.set({ "civic": document.getElementById("civicKey").value, 
+    "gpt": document.getElementById("gptKey").value}).then(() => {
+        console.log("Civic Key is set");
+        console.log("GPT Key is set");
+    });
+}
+
+function getAuth(x){
+    y = "";
+    if (x=="civic") {
+        chrome.storage.local.get(["civicKey"], function(items){
+            y += items.civicKey;
+        });
+        setTimeout(function(){
+            console.log("get after " + y);
+            return y;
+        }, 500)
+    }
+    else {
+        chrome.storage.local.get(["gptKey"], function(items){
+            y += items.gptKey;
+        });
+        setTimeout(function(){
+            console.log("get after " + y);
+            return y;
+        }, 500)
+    }
 }
