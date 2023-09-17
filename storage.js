@@ -61,25 +61,3 @@ function retrieve() {
         return x;
     }, 1000)
 }
-
-function getAuth(x){
-    y = "";
-    if (x=="civic") {
-        chrome.storage.local.get(["civicKey"], function(items){
-            y += items.civicKey;
-        });
-        setTimeout(function(){
-            console.log("get after " + y);
-            return y;
-        }, 500)
-    }
-    else {
-        chrome.storage.local.get(["gptKey"], function(items){
-            y += items.gptKey;
-        });
-        setTimeout(function(){
-            console.log("get after " + y);
-            return y;
-        }, 500)
-    }
-}
