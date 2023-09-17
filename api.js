@@ -66,9 +66,16 @@ function getAuth(){
             
             const response = await fetch("https://www.googleapis.com/civicinfo/v2/representatives?key="+civicKey+"&address=" + address + "&roles=legislatorLowerBody")
             const output = await response.json();
-            console.log(output.officials[0].urls[0]);
+            console.log(output.officials[0].name);
             document.getElementById("repWebsite").href = output.officials[0].urls[0];
             document.getElementById("repPic").src = output.officials[0].photoUrl;
+            document.getElementById("repName").innerHTML = "Your Representative: "+output.officials[0].name;
+
+            chrome.storage.local.set({ 
+            "repName": output.officials[0].name, 
+            "repWebsite": output.officials[0].urls[0]}).then(() => {
+                
+            });
         }
     
 }
@@ -105,6 +112,7 @@ async function testFetch() {
     const gptOut =  await gpt.json();
     console.log(gptOut);   
     console.log(output.officials[0].urls[0]);
+    
 }
 
 
