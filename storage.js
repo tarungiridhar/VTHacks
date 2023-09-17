@@ -1,4 +1,5 @@
 document.getElementById("saveButt").addEventListener("click",store);
+document.getElementById("nextButt").addEventListener("click",store);
 document.getElementById("retrieveButt").addEventListener("click",retrieve);
 
 function store() {
