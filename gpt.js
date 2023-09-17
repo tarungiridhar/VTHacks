@@ -61,5 +61,8 @@ function newTab() {
         console.log("just got " + repSite);
     }, 500)
 
-    window.open(repSite, "_blank");
+    setTimeout(function(){
+        console.log("just got " + repSite);
+        window.open(repSite, "_blank");
+    }, 10000)
 }

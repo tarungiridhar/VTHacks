@@ -76,6 +76,9 @@ function getAuth(){
             "repWebsite": output.officials[0].urls[0]}).then(() => {
                 
             });
+            chrome.storage.local.get(["repWebsite"], function(items){
+                console.log(items.repWebsite);
+            });
         }
     
 }
