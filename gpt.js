@@ -1,18 +1,26 @@
-document.getElementById("saveButt").addEventListener("click",generate);
+document.getElementById("genButt").addEventListener("click",generate);
 
 function generate() {
     userIn = document.getElementById("inputWords").value;
+    console.log(userIn);
     auth = "";
+    userName = "";
+    repName = "";
 
-    chrome.storage.local.get(["gpt"], function(items){
+    chrome.storage.local.get(["gpt", "firstName", "lastName", "repName"], function(items){
         auth = items.gpt;
+        userName = items.firstName + " " + items.lastName;
+        repName = items.repName;
     });
+
+    
 
     setTimeout(function(){
         console.log("just got " + auth);
+        testFetch()
     }, 1000)
 
-    testFetch()
+    
 
     async function testFetch() {
     
@@ -27,14 +35,14 @@ function generate() {
               'messages': [
                 {
                   'role': 'user',
-                  'content': userIn
+                  'content': "Write the body of a message to my local representative " + repName + " that talks about" + userIn + " My name is " + userName + "."
                 }
               ],
               'temperature': 0.7
             })
           });
         const gptOut =  await gpt.json();
-        document.getElementById("message").value = gptOut;
         console.log(gptOut);
+        document.getElementById("inputWords").value = gptOut.choices[0].message.content;
     }
 }
