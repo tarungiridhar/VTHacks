@@ -53,19 +53,26 @@ label {
     font-family: Georgia, serif;
     font-size: 14px;
 }
-textarea[type="thoughts"]::placeholder {
+textarea::placeholder {
     text-align: center;
 }
 
-textarea[type="thoughts"] {
-    /* margin-left: auto;
-    margin-right: auto; */
-    display: block;
-    width: 80%;
-    height: 50%;
-    margin-bottom: 10px;
-    align-self: stretch;
-}
+.centered-textarea {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* 100% of viewport height */
+  }
+  
+  /* CSS styles for the textarea */
+  textarea {
+    width: 80%; /* Adjust the width as needed */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center; /* Center the text within the textarea */
+  }
 
 button {
     display: inline-block;
