@@ -1,5 +1,5 @@
 document.getElementById("genButt").addEventListener("click",generate);
-document.getElementById("repButt").addEventListener("click",generate);
+document.getElementById("repButt").addEventListener("click",newTab);
 
 function generate() {
     userIn = document.getElementById("inputWords").value;
@@ -48,8 +48,11 @@ function generate() {
     }
 }
 
-function NewTab() {
+function newTab() {
     repSite = "";
+    let text = document.getElementById("inputWords");
+    text.select();
+    document.execCommand("copy");
     chrome.storage.local.get(["repWebsite"], function(items){
         repsite = items.repWebsite;
     });
