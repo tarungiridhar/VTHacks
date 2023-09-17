@@ -1,18 +1,20 @@
 var civicKey = ""
+var gptKey = ""
 
-document.getElementById("apiSaveButt").addEventListener("click",saveAuth);
+if (document.title == "api") {
+    document.getElementById("apiSaveButt").addEventListener("click",saveAuth);
+}
+
 
 function saveAuth() {
     chrome.storage.local.set({ "civic": document.getElementById("civicKey").value, 
     "gpt": document.getElementById("gptKey").value}).then(() => {
         console.log("Civic Key is set " + document.getElementById("civicKey").value);
         civicKey = document.getElementById("civicKey").value;
-        console.log("GPT Key is set");
+        console.log("GPT Key is set " + document.getElementById("gptKey").value);
+        gptKey = document.getElementById("gptKey").value;
         testFetch();
     });
-    chrome.storage.local.get(["civic"], function(items){
-        console.log("After Safe: " + items.civic);
-    })
 }
 
 function getAuth(x){
@@ -50,6 +52,26 @@ async function testFetch() {
     
     const response = await fetch("https://www.googleapis.com/civicinfo/v2/representatives?key="+civicKey+"&address=1014%20Gustafson%20Ave%20Blacksburg%20VA%2024060&roles=legislatorLowerBody")
     const output = await response.json();
+
+    const gpt = await fetch('https://api.openai.com/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + "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"
+        },
+        body: JSON.stringify({
+          'model': 'gpt-3.5-turbo',
+          'messages': [
+            {
+              'role': 'user',
+              'content': ''
+            }
+          ],
+          'temperature': 0.7
+        })
+      });
+    const gptOut =  await gpt.json();
+    console.log(gptOut);   
     console.log(output.officials[0].urls[0]);
 }
 
